@@ -9,7 +9,13 @@ public class RobotTest {
     public void shouldNotAcceptDistanceOverLimit(){
         Robot robot = new Robot();
         assertThat(robot.colisionPoint(10, 10, 45, 45, 10))
-                .isInstanceOf(String.class)
+                .isEqualTo("Error");
+    }
+
+    @Test
+    public void shouldNotAcceptNegativeDistance(){
+        Robot robot = new Robot();
+        assertThat(robot.colisionPoint(1, 1, 45, 60, -4))
                 .isEqualTo("Error");
     }
 
