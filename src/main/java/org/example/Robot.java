@@ -4,7 +4,7 @@ import java.util.function.IntPredicate;
 
 public class Robot {
 
-    public Object colisionPoint(int x1, int x2, int a, int f, int d){
+    public Object colisionPoint(Integer x1, Integer x2, Integer a, Integer f, Integer d){
         if(d > 8 || d < 0){
             return "Error";
         }
