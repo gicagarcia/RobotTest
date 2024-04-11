@@ -8,7 +8,7 @@ public class Robot {
         if(d > 8 || d < 0){
             return "Error";
         }
-        return -1;
+        return new Integer[]{1, 2};
     }
 
     public Integer recalculateAngle(Integer a, Integer f){
