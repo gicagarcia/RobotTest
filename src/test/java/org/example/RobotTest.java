@@ -26,4 +26,10 @@ public class RobotTest {
                 .isEqualTo("Error");
     }
 
+    @Test
+    public void rightfullyCalculatesColisionAngle(){
+        Integer newAngle = recalculateAngle(45, 135);
+        assertThat(newAngle).isEqualTo(90);
+    }
+
 }
