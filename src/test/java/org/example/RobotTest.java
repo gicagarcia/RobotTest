@@ -4,6 +4,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class RobotTest {
 
@@ -29,6 +30,12 @@ public class RobotTest {
     @Test
     public void rightfullyCalculatesColisionAngle(){
         assertThat(robot.recalculateAngle(45, 135)).isEqualTo(90);
+    }
+
+    @Test
+    public void shouldReturnTwoIntegersIfInputsValid(){
+        Object coordenates = robot.colisionPoint(1, 1, 45, 60, 3);
+        assertTrue(coordenates instanceof Integer[]);
     }
 
 }
