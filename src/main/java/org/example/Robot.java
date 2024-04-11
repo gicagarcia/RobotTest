@@ -11,4 +11,8 @@ public class Robot {
         return -1;
     }
 
+    public Integer recalculateAngle(Integer a, Integer f){
+        return (a+f) - 90;
+    }
+
 }
