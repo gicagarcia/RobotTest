@@ -31,6 +31,12 @@ public class RobotTest {
     }
 
     @Test
+    public void shouldOnlyAcceptAnglesBetweenNegative90AndPositive90(){
+        ColisionResult result = robot.colisionPoint(0, 0, 100, 150, 5);
+        assertTrue(result.hasError());
+    }
+
+    @Test
     public void rightfullyCalculatesColisionAngle(){
         assertThat(robot.recalculateAngle(45, 135))
                 .isEqualTo(90);
