@@ -6,9 +6,11 @@ public class Robot {
 
     public ColisionResult colisionPoint(Integer x1, Integer x2, Integer a, Integer f, Integer d){
         if(d > 8 || d < 0){
-            return new ColisionResult("Error");
+            return new ColisionResult("Error: distance out of limit");
         }else if(a > 90 || a < -90){
-            return new ColisionResult("Error");
+            return new ColisionResult("Error: angle out of limit");
+        }else if(f > 180){
+            return new ColisionResult("Error: beams out of limit");
         }
 
         Integer angle = recalculateAngle(a, f);
