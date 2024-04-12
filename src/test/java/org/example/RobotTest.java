@@ -37,6 +37,12 @@ public class RobotTest {
     }
 
     @Test
+    public void shouldOnlyAcceptBeamsUnder180(){
+        ColisionResult result = robot.colisionPoint(0, 0, 45, 190, 5);
+        assertTrue(result.hasError());
+    }
+
+    @Test
     public void rightfullyCalculatesColisionAngle(){
         assertThat(robot.recalculateAngle(45, 135))
                 .isEqualTo(90);
