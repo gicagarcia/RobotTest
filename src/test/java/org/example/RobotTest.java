@@ -3,7 +3,10 @@ package org.example;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
+
 import static org.assertj.core.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class RobotTest {
@@ -17,25 +20,27 @@ public class RobotTest {
 
     @Test
     public void shouldNotAcceptDistanceOverLimit(){
-        assertThat(robot.colisionPoint(10, 10, 45, 45, 10))
-                .isEqualTo("Error");
+        ColisionResult result = robot.colisionPoint(10, 10, 45, 45, 10);
+        assertTrue(result.hasError());
     }
 
     @Test
     public void shouldNotAcceptNegativeDistance(){
-        assertThat(robot.colisionPoint(1, 1, 45, 60, -4))
-                .isEqualTo("Error");
+        ColisionResult result = robot.colisionPoint(1, 1, 45, 60, -4);
+        assertTrue(result.hasError());
     }
 
     @Test
     public void rightfullyCalculatesColisionAngle(){
-        assertThat(robot.recalculateAngle(45, 135)).isEqualTo(90);
+        assertThat(robot.recalculateAngle(45, 135))
+                .isEqualTo(90);
     }
 
     @Test
     public void shouldReturnTwoIntegersIfInputsValid(){
-        Object coordenates = robot.colisionPoint(1, 1, 45, 60, 3);
-        assertTrue(coordenates instanceof Integer[]);
+        ColisionResult result = robot.colisionPoint(1, 1, 45, 60, 3);
+        Integer[] coordinates = result.getCoordinates();
+        assertEquals(2, coordinates.length);
     }
 
 }
