@@ -7,6 +7,8 @@ public class Robot {
     public ColisionResult colisionPoint(Integer x1, Integer x2, Integer a, Integer f, Integer d){
         if(d > 8 || d < 0){
             return new ColisionResult("Error");
+        }else if(a > 90 || a < -90){
+            return new ColisionResult("Error");
         }
 
         Integer angle = recalculateAngle(a, f);
